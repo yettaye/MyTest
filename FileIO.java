@@ -2,6 +2,8 @@ package com.io.share;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
@@ -10,7 +12,7 @@ import java.nio.channels.FileChannel;
 /**
  * TODO
  *
- * @author yechunying 
+ * @author yechunying
  */
 public class FileIO {
     @Test
@@ -112,6 +114,19 @@ public class FileIO {
             System.out.print(((char)buffer.get(i)));
         }
 
+
+    }
+
+
+    @Test
+    public  void testBasicFileIO() throws Exception {
+        File file = new File("/test.xml");
+        FileOutputStream out = new FileOutputStream(file);
+        while(true){
+            Thread.sleep(10);
+            out.write("123456789\n".getBytes());
+
+        }
 
     }
 
